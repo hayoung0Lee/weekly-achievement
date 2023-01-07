@@ -8,22 +8,24 @@ class Solution:
         
         # i eat leetcode
         # i leetcode eat
+        n = len(words)
         
-        answer = -1
+        if target not in words:
+            return -1
+
+        answer = float('inf')
         
         rightArr = words[startIndex:] + words[0:startIndex]
         leftArr = words[startIndex::-1] + words[-1:startIndex:-1]
         
         for i in range(len(rightArr)): 
             if rightArr[i] == target: 
-                if answer == -1 or answer > i: 
+                if answer > i: 
                     answer = i
-        
+            
         for i in range(len(leftArr)): 
             if leftArr[i] == target: 
-                if answer == -1 or answer > i: 
+                if answer > i: 
                     answer = i
         
         return answer
-         
-        
