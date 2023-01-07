@@ -15,17 +15,22 @@ class Solution:
 
         answer = float('inf')
         
-        rightArr = words[startIndex:] + words[0:startIndex]
-        leftArr = words[startIndex::-1] + words[-1:startIndex:-1]
+        targets = [i for i in range(n) if words[i] == target]
         
-        for i in range(len(rightArr)): 
-            if rightArr[i] == target: 
-                if answer > i: 
-                    answer = i
+        for index in targets: 
+            forward = 0
+            if startIndex <= index: 
+                forward = index - startIndex
+            else: 
+                forward = (n + index) - startIndex
+                
+            backward = 0
+            if startIndex >= index:
+                backward = startIndex - index
+            else: 
+                backward = startIndex - (index - n)
             
-        for i in range(len(leftArr)): 
-            if leftArr[i] == target: 
-                if answer > i: 
-                    answer = i
+            answer = min(answer, forward, backward)
+        
         
         return answer
