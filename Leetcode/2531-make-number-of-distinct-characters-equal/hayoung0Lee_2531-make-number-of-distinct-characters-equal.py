@@ -1,7 +1,5 @@
 class Solution:
     def isItPossible(self, word1: str, word2: str) -> bool:
-        eng = "abcdefghijklmnopqrstuvwxyz"
-        
         all_letters = set(word1 + word2)
         m1 = {k: word1.count(k) for k in all_letters}
         m2 = {k: word2.count(k) for k in all_letters}
@@ -20,7 +18,6 @@ class Solution:
                     
                     if len(m1_filtered) == len(m2_filtered):
                         return True
-                    
                     
                     # reset
                     m1[w1] += 1
