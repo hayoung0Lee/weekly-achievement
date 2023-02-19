@@ -1,16 +1,16 @@
 class Solution:
     def findTheArrayConcVal(self, nums: List[int]) -> int:
         ans = 0
-        while nums:
-            first = nums[0]
-            second = nums[-1]
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            first = nums[left]
+            second = nums[right]
         
-            if len(nums) == 1:
+            if left == right:
                 ans += first
-                nums.pop(0)
             else:
                 ans += int(str(first) + str(second))
-                nums.pop(0)
-                nums.pop()
-                
+            left += 1
+            right -= 1
         return ans
