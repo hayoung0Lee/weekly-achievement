@@ -9,5 +9,5 @@ class Solution:
                 res += 1
             else:
                 res += 1
-                n >>= 1
+                n >>= 2
         return res
