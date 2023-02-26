@@ -1,19 +1,24 @@
 class Solution:
     def leftRigthDifference(self, nums: List[int]) -> List[int]:
-        leftSum = [0]
-        rightSum = [0]
-        
-        for index, value in enumerate(nums[0: -1]):
-            leftSum.append(leftSum[index] + value)
-       
-        for index, value in enumerate(reversed(nums[1:])):
-            rightSum.append(rightSum[index] + value)
-        
-        rightSum.reverse()
+        total = sum(nums)
+        leftSum = 0
         
         ans = []
-        
-        for a, b in zip(leftSum, rightSum):
-            ans.append(abs(a - b))
+        for i in nums: 
+            # sum([10, 4, 8, 3]) - 0 = Sum of [10, 4, 8, 3]
+            # to get right sum, subtract current value 
+            
+            # sum([10, 4, 8, 3]) - 10 = Sum of [4, 8, 3]
+            # to get right sum, subtract current value
+            
+            # sum([10, 4, 8, 3]) - 14 = Sum of [8, 3]
+            # to get right sum, subtract current value
+            
+            # sum([10, 4, 8, 3]) - 22 = Sum of [3]
+            # to get right sum, subtract current value
+            rightSum = (total - leftSum) - i 
+            ans.append(abs(rightSum - leftSum))
+            leftSum += i 
         
         return ans
+        
