@@ -1,5 +1,6 @@
 class SmallestInfiniteSet {
 public:
+    // 거의 브루트포스
     set<int> s;
     priority_queue<int, vector<int>, greater<int>> pq;
     
