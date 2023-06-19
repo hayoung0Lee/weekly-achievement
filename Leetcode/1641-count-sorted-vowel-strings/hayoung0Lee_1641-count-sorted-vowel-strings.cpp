@@ -38,7 +38,6 @@ public:
         arr[3][3] = arr[2][0] + arr[2][1] + arr[2][2] + arr[2][3];
         arr[3][4] = arr[2][0] + arr[2][1] + arr[2][2] + arr[2][3] + arr[2][4];
         
-    
         return count(n, 0) + count(n, 1) + count(n, 2) + count(n, 3) + count(n, 4);   
     }
 };
