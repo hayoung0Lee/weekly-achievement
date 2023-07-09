@@ -8,6 +8,7 @@ class Solution {
         
         if(currentSum == target){
             answer.push_back(arr);
+            return;
         }
         
         for(int i = currentIndex; i < candidates.size(); i++){
