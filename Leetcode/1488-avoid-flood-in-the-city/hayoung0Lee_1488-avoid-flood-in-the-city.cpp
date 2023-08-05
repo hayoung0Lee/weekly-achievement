@@ -8,7 +8,7 @@ public:
         for(int i= 0; i < rains.size(); i++){
             if(rains[i] == 0){
                 zero.insert(i);
-                res[i] = 2; // 왜?
+                res[i] = 1; // 왜?
             } else {
                 if(m.count(rains[i])){ // 이미 앞에 온게 있으면 그거부터 처리
                     int lastIndex = m[rains[i]]; // 1번째에 1번에 비가 왔다
