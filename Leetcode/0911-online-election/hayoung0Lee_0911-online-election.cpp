@@ -1,29 +1,24 @@
 class TopVotedCandidate {
 public:
-    // https://leetcode.com/problems/online-election/discuss/3806741/Easy-implementation-using-upper-bound-oror-C%2B%2B-Solution
     vector<int> time;
     vector<int> ans;
     
     TopVotedCandidate(vector<int>& persons, vector<int>& times) {
         int n = persons.size();
-        time = times; // 모든 time넣기
-        int mxp = -1;
+        time = times; // 모든 time할당
+        int mpx = -1;
         unordered_map<int, int>mp;
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < n; i++){ // n이랑 time이랑 index가 matching이 됨
             mp[persons[i]]++;
-            if(mp[persons[i]] >= mp[mxp]){
-                // 현재 최대 후보 보다 값이 큰지 확인
-                mxp = persons[i];
+            if(mp[persons[i]] >= mp[mpx]){
+                mpx = persons[i]; // 더큰걸 할당
             }
-            ans.push_back(mxp); // 각 타임마다 큰걸 넣어준다. 
+            ans.push_back(mpx);
         }
-        
-
-        
     }
     
     int q(int t) {
-        // iterator를 반환해서 idx로 변환. 그리고 그거보다 하나 작아야함. 
+        // iterator 를 반환해서 idx로 변환, 그런데 초과하는 첫번째 index를 변환해주는거라 1빼줘야함
         int idx = (upper_bound(time.begin(), time.end(), t) - time.begin()) - 1;
         return ans[idx];
     }
