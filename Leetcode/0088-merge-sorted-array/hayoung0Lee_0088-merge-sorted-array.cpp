@@ -4,24 +4,26 @@ public:
         int i = 0; 
         int j = 0;
         
-        // 만약에 n이 0이면 그냥 retur하면 된다
+        // 만약에 n이 0이면 그냥 return하면 된다
         if(n == 0){
             return;
         }
         
-        while(i < m && j < n){
+        int s = m; // 빈자리를 뺀 길이를 체크한다, 1 1 1 0 0 0이면 1 1 1인 3을 체크해둠
+        
+        while(i < s && j < n){ //  
             if(nums1[i] >= nums2[j]){
-                for(int k = m; k > i; k--){
+                for(int k = s; k > i; k--){
                    nums1[k] = nums1[k-1]; 
                 }
                 nums1[i] = nums2[j];
-                m++;  
+                s++;  
                 j++;
             }
             i++;
         }
         
-        if(j < nums2.size()){
+        if(j < n){
            for(int k = i; k < nums1.size(); k++){
                 nums1[k] = nums2[j];
                 j++;
