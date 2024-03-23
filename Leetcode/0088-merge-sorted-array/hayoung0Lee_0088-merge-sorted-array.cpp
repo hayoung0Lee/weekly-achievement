@@ -4,6 +4,7 @@ public:
         int i = 0; 
         int j = 0;
         
+        // 만약에 n이 0이면 그냥 retur하면 된다
         if(n == 0){
             return;
         }
@@ -20,7 +21,6 @@ public:
             i++;
         }
         
-//         std::cout << j << ", " << m << std::endl;
         if(j < nums2.size()){
            for(int k = i; k < nums1.size(); k++){
                 nums1[k] = nums2[j];
